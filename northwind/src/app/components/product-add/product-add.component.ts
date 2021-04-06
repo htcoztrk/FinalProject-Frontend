@@ -32,10 +32,11 @@ productAddForm:FormGroup;
       this.toastrService.success(response.message,"ürün eklendi")
       console.log(response)
     },responseError=>{
-      if(responseError.errors.Errors.length>0){
-        for (let i = 0; i < responseError.errors.Errors.length; i++) {
+      console.log(responseError)
+      if(responseError.error.Errors.length>0){
+        for (let i = 0; i < responseError.error.Errors.length; i++) {
           
-          this.toastrService.error(responseError.errors.Errors[i],"Doğrulama Hatası")
+          this.toastrService.error(responseError.error.Errors[i].ErrorMessage,"Doğrulama Hatası")
 
         }
       }
